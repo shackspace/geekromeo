@@ -1,4 +1,27 @@
+{% extends "layout.html" %}
 
-{% for element in profile_list %}
-{{ element.user }}
+{% block title %}
+{{ block.super }} - Profile
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+      <div class="span3">
+	<h1>Profile</h1>
+
+{% for profile in profile_list %}
+        <img src="{{ MEDIA_URL }}{{ profile.photo }}">
+{#        <h3>HairyFreedomLover42</h2>#}
+        <p>{{ profile.user }}</p>
+      </div>
+      <div class="span9">
+        <table class="table">
+          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
+          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
+          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
+          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
+        </table>
 {% endfor %}
+      </div>
+    </div>
+{% endblock %}

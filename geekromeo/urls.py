@@ -5,6 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from .views import HomeView
+import os
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,3 +20,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
+
+
+from django.conf import settings
+if settings.DEBUG:
+    urlpatterns += patterns('', url(r'^media/(.*)$', 'django.views.static.serve', 
+                                    kwargs={'document_root': 
+                                            os.path.join(settings.PROJECT_ROOT, 
+                                                         'media')}), )

@@ -2,16 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Carousel Template &middot; Bootstrap</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet">
     
+    <title>{% block title %}Geekromeo{% endblock %}</title>
+
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,10 +26,9 @@
     <link rel="shortcut icon" href="../assets/ico/favicon.png">
     
     <!-- Ponies -->
-    <!--
+    {% ifnotequal user.username 'admin' %}
     <script type="text/javascript" src="http://panzi.github.com/Browser-Ponies/basecfg.js" id="browser-ponies-config"></script><script type="text/javascript" src="http://panzi.github.com/Browser-Ponies/browserponies.js" id="browser-ponies-script"></script><script type="text/javascript">/* <![CDATA[ */ (function (cfg) {BrowserPonies.setBaseUrl(cfg.baseurl);BrowserPonies.loadConfig(BrowserPoniesBaseConfig);BrowserPonies.loadConfig(cfg);})({"baseurl":"http://panzi.github.com/Browser-Ponies/","fadeDuration":500,"volume":1,"fps":25,"speed":3,"audioEnabled":false,"showFps":false,"showLoadProgress":true,"speakProbability":0.1,"spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1},"autostart":true}); /* ]]> */</script>
-    -->
-
+    {% endifnotequal %}
   </head>
 
   <body>
@@ -52,23 +52,8 @@
     
     <div id="container">
     
-    <div class="row">
-      <div class="span3">
-        <img src="http://stallman.org/Portrait_-_Denmark_DTU_2007-3-31.jpg">
-        <!-- <img src="{% get_media_prefix %}{% profile.image %}"> -->
-        <h3>HairyFreedomLover42</h2>
-        <!-- <p>{% profile.user %}</p> -->
-      </div>
-      <div class="span9">
-        <table class="table">
-          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
-          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
-          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
-          <tr><td><b>Bla</b></td><td>Blubb</td></tr>
-        </table>
-      </div>
-    </div>
-    
+{% block content %}
+{% endblock %}    
     </div>
   
     <!-- Le javascript

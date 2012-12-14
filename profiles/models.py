@@ -7,7 +7,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50, blank=True, null=True)
 
-    photo = models.ImageField(upload_to='media', blank=True, null=True)
+    photo = models.ImageField(upload_to='profile', blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
     occupation = models.TextField(blank=True, null=True)
     hackerspace = models.TextField(blank=True, null=True)
