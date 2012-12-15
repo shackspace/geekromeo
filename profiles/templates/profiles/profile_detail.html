@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ block.super }} - Profil von {{ profile.user }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+      <div class="span6">
+      <h1>Profil von {{ profile.user }}</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span3">
+        <img src="{{ MEDIA_URL }}{{ profile.photo }}">
+      </div>
+      <div class="span6">
+        <dl>
+	  <dt>Username</dt>
+	  <dd>{{ profile.user }}</dd>
+	</dl>
+        <dl>
+	  <dt>Age</dt>
+	  <dd>{{ profile.age }}</dd>
+	</dl>
+        <dl>
+	  <dt>Search</dt>
+	  <dd>{{ profile.search }}</dd>
+	</dl>
+      </div>
+    </div>
+{% endblock %}
