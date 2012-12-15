@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 class Profile(models.Model):
 
@@ -19,6 +20,7 @@ class Profile(models.Model):
     STARWARS_VS_STARTREK_CHOICES = (
         (u'sw', u'Starwars'),
         (u'st', u'Startrek'),
+        (u'sg', u'Stargate'),
     )
     starwars_vs_startrek = models.CharField(max_length=2, 
                                             choices=STARWARS_VS_STARTREK_CHOICES)
@@ -29,6 +31,9 @@ class Profile(models.Model):
 
     last_update = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+
+    def get_absolute_url(self):
+        return reverse('profiledetail', args=[self.user.username])
 
     def __unicode__(self):
         return "%s [%s %s]" % (self.user, self.first_name, self.last_name)

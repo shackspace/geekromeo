@@ -7,3 +7,4 @@ class ProfileHomeView(ListView):
 
 class ProfileView(DetailView):
     model = Profile
+    slug_field = 'user__username'
