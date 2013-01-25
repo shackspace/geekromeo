@@ -2,6 +2,32 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+class Pony(models.Model):
+    name = models.CharField(max_length=128)
+    
+    last_update = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "ponies"
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+
+class CodingLanguage(models.Model):
+    name = models.CharField(max_length=128)
+    
+    last_update = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "CodingLanguages"
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+
 class Profile(models.Model):
 
     user = models.OneToOneField(User)
@@ -13,7 +39,9 @@ class Profile(models.Model):
     occupation = models.TextField(blank=True, null=True)
     hackerspace = models.TextField(blank=True, null=True)
     os = models.TextField(blank=True, null=True)
-    programming_languages = models.TextField(blank=True, null=True)
+
+    programming_languages = models.ManyToManyField(CodingLanguage,
+                                                   blank=True, null=True)
     conventions = models.TextField(blank=True, null=True)
     interests = models.TextField(blank=True, null=True)
 
@@ -24,7 +52,9 @@ class Profile(models.Model):
     )
     starwars_vs_startrek = models.CharField(max_length=2, 
                                             choices=STARWARS_VS_STARTREK_CHOICES)
-    brony = models.BooleanField()
+    brony = models.ForeignKey(Pony,
+                              blank=True, null=True)
+
     search = models.TextField(blank=True, null=True)
     freetext = models.TextField(blank=True, null=True)
     hipster = models.TextField()
@@ -37,4 +67,3 @@ class Profile(models.Model):
 
     def __unicode__(self):
         return "%s [%s %s]" % (self.user, self.first_name, self.last_name)
-

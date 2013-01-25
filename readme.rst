@@ -10,12 +10,11 @@ Info
 
 
 
-Requirements
-============
+Load fixtures
+=============
 
 ::
 
-  Django
-  PIL
-
+  ./manage.py loaddata profiles profiles/fixtures/pony.yaml
+  ./manage.py loaddata profiles profiles/fixtures/codinglanguage.yaml
 
