@@ -42,6 +42,10 @@ class Profile(models.Model):
 
     programming_languages = models.ManyToManyField(CodingLanguage,
                                                    blank=True, null=True)
+    sexy_programming_languages = models.ManyToManyField(CodingLanguage,
+                                                        blank=True, null=True)
+    no_go_programming_languages = models.ManyToManyField(CodingLanguage,
+                                                         blank=True, null=True)
     conventions = models.TextField(blank=True, null=True)
     interests = models.TextField(blank=True, null=True)
 
