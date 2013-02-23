@@ -1,3 +1,4 @@
 Django
 PIL
 pyaml
+django-allauth
