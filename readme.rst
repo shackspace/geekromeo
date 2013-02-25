@@ -22,7 +22,23 @@ Load fixtures
 Bootstrap project
 =================
 
-* use virtualenv
-* pip install -r requirements.txt
-* python manage.py syncdb
-* python manage.py runserver
+(using `virtualenvwrapper <http://virtualenvwrapper.readthedocs.org/en/latest/>`_
+
+::
+
+  mkvirtualenv geekromeo
+  pip install -r pip-requirements.txt
+  
+
+create database
+
+::
+
+  python manage.py syncdb
+
+
+run:
+
+::
+
+  python manage.py runserver
