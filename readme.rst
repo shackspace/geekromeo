@@ -22,7 +22,7 @@ Load fixtures
 Bootstrap project
 =================
 
-(using `virtualenvwrapper <http://virtualenvwrapper.readthedocs.org/en/latest/>`_
+using `virtualenvwrapper <http://virtualenvwrapper.readthedocs.org/en/latest/>`_
 
 ::
 
